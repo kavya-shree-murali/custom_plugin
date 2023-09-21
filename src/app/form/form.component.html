@@ -1,0 +1,29 @@
+<form action="" [formGroup]="arrayForm">
+    <div formArrayName="list">
+        <div *ngFor="let data of arrayForm?.get('list')['controls']; let i = index" [formGroupName]="i">
+            <mat-form-field class="full-width">
+                <mat-label>Label Name</mat-label>
+                <input matInput placeholder="Label Name" name="Label Name" type="text" formControlName="LabelName">
+                <mat-error *ngIf="data.controls['LabelName'].hasError('required')">Please provide the
+                    Label Name</mat-error>
+            </mat-form-field>
+            <br>
+            <mat-form-field class="full-width">
+                <mat-label>Label Amount</mat-label>
+                <input matInput placeholder="Label Amount" name="Label Amount" type="text" formControlName="LabelAmt">
+                <mat-error *ngIf="data.controls['LabelAmt'].hasError('required')">Please provide the
+                    Label Amount</mat-error>
+            </mat-form-field>
+            <br>
+            <mat-form-field class="full-width">
+                <mat-label>Amount</mat-label>
+                <input matInput placeholder="Amount" name="Amount" type="text" formControlName="amt">
+                <mat-error *ngIf="data.controls['amt'].hasError('required')">Please provide the
+                    Amount</mat-error>
+            </mat-form-field>
+            <button mat-raised-button color="primary" *ngIf="arrayForm?.get('list')['controls'].length > 1" (click)="remove(i)">REMOVE</button>
+            <button mat-raised-button color="primary" *ngIf="i == (arrayForm?.get('list')['controls'].length - 1)">show</button>
+        </div>
+    </div>
+    <button mat-raised-button color="primary" (click)="add()">ADD</button>
+</form>

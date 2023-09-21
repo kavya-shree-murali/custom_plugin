@@ -1,0 +1,30 @@
+<form [formGroup]="form">
+  <div formArrayName="language">
+    <div *ngFor="let datas of form?.get('language').controls;let i=index;" [formGroupName]="i">
+      <!-- <mat-form-field>
+        <mat-select placeholder="Favorite food">
+          <mat-option *ngFor="let data of languages" [value]="data.value" formControlName="text"
+            (change)="change($event)">
+            {{ data.viewValue }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field> -->
+
+      <div>
+        <app-custom-plugin [label]="'select language'"  [form_control]="datas.controls['text']" [required]="true"
+        [options]="languages" [options_display]="'viewValue'" [options_value]="'value'"
+        [error]="'Please provide the language'"  (on_select)="change($event)"></app-custom-plugin>
+      </div>
+
+      <!-- <input type="text"> -->
+    </div>
+    <mat-icon class="new_close" (click)="removeOthers(i)"
+      *ngIf="form?.get('language').controls?.length>1">close</mat-icon>
+    <div>
+      <button mat-raised-button class="addmore-btn" type="button" (click)="addAnotherDocs()">
+        + Add More
+      </button>
+    </div>
+  </div>
+
+</form>

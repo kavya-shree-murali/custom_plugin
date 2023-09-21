@@ -1,0 +1,152 @@
+{
+    "data": [
+        {
+            "code": "ml",
+            "name": "Malayalam"
+        },
+        {
+            "code": "ur",
+            "name": "Urdu"
+        },
+        {
+            "code": "te",
+            "name": "Telugu"
+        },
+        {
+            "code": "ta",
+            "name": "Tamil"
+        },
+        {
+            "code": "en",
+            "name": "English"
+        },
+        {
+            "code": "hi",
+            "name": "Hindi"
+        },
+        {
+            "code": "eo",
+            "name": "Esperanto"
+        },
+        {
+            "code": "et",
+            "name": "Estonian"
+        },
+        {
+            "code": "ee",
+            "name": "Ewe"
+        },
+        {
+            "code": "fo",
+            "name": "Faroese"
+        },
+        {
+            "code": "fj",
+            "name": "Fijian"
+        },
+        {
+            "code": "fi",
+            "name": "Finnish"
+        },
+        {
+            "code": "fr",
+            "name": "French"
+        },
+        {
+            "code": "ff",
+            "name": "Fula; Fulah; Pulaar; Pular"
+        },
+        {
+            "code": "gl",
+            "name": "Galician"
+        },
+        {
+            "code": "ka",
+            "name": "Georgian"
+        },
+        {
+            "code": "de",
+            "name": "German"
+        },
+        {
+            "code": "el",
+            "name": "Greek, Modern"
+        },
+        {
+            "code": "gn",
+            "name": "GuaranÃ­"
+        },
+        {
+            "code": "gu",
+            "name": "Gujarati"
+        },
+        {
+            "code": "ht",
+            "name": "Haitian; Haitian Creole"
+        },
+        {
+            "code": "ha",
+            "name": "Hausa"
+        },
+        {
+            "code": "he",
+            "name": "Hebrew (modern)"
+        },
+        {
+            "code": "hz",
+            "name": "Herero"
+        },
+        {
+            "code": "ho",
+            "name": "Hiri Motu"
+        },
+        {
+            "code": "hu",
+            "name": "Hungarian"
+        },
+        {
+            "code": "ia",
+            "name": "Interlingua"
+        },
+        {
+            "code": "id",
+            "name": "Indonesian"
+        },
+        {
+            "code": "ie",
+            "name": "Interlingue"
+        },
+        {
+            "code": "ga",
+            "name": "Irish"
+        },
+        {
+            "code": "ig",
+            "name": "Igbo"
+        },
+        {
+            "code": "ik",
+            "name": "Inupiaq"
+        },
+        {
+            "code": "io",
+            "name": "Ido"
+        },
+        {
+            "code": "is",
+            "name": "Icelandic"
+        },
+        {
+            "code": "it",
+            "name": "Italian"
+        },
+        {
+            "code": "iu",
+            "name": "Inuktitut"
+        },
+        {
+            "code": "ja",
+            "name": "Japanese"
+        }
+    ]
+}

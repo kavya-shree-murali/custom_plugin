@@ -1,0 +1,37 @@
+<mat-form-field appearance="outline">
+    <mat-label *ngIf="options">{{label|titlecase}}</mat-label>
+    <mat-label *ngIf="options==undefined">
+        <div class="select-placeholder-container">
+            <span>{{label|titlecase}}</span>
+        </div>
+    </mat-label>
+    <mat-select [formControl]="form_control" (selectionChange)="optionSelected($event)" (openedChange)="clearSearch()" multiple>
+        <div class="">
+
+            <input matInput #searchInput class="mat-filter-input" [formControl]="searchControl"
+                [placeholder]="placeholder" matInput >
+            <mat-icon class="clear_icon" *ngIf="searchInput.value!=''" (click)="searchInput.value='';clearSearch()">
+                cancel
+            </mat-icon>
+        </div>
+        <div class="" style="margin-top: 10px;" *ngIf="options_display!=''&&options_value!=''">
+            <mat-option *ngFor="let data of filteredOptions" [value]="data[options_value]">
+                {{data[options_display]}}
+            </mat-option>
+        </div>
+        <div class="" style="margin-top: 10px;" *ngIf="options_display==''&&options_value==''">
+            <mat-option *ngFor="let data of filteredOptions" [value]="data">
+                {{data}}
+            </mat-option>
+        </div>
+
+
+        <mat-option class="no_data" *ngIf="filteredOptions.length<=0||filteredOptions==undefined">No data found...</mat-option>
+    </mat-select>
+    <span *ngIf="form_control.valid" >
+        <mat-icon (click)="clear()">cancel</mat-icon>
+    </span>
+    <span matSuffix *ngIf="form_control.hasError('required') && form_control.touched" matTooltip="{{error }}">
+        <mat-icon color="warn">info</mat-icon>
+    </span>
+</mat-form-field>

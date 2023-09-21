@@ -1,0 +1,41 @@
+<button mat-raised-button color="primary" (click)="routes()">Form Array</button>
+<h1>Filter</h1>
+<form action="" [formGroup]="filterForm" (ngSubmit)="save()">
+  <mat-form-field>
+    <input matInput [matDatepicker]="picker1" (click)="picker1.open()" placeholder="Choose a from date" readonly
+      [max]="today" formControlName="from_date">
+    <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+    <mat-datepicker #picker1></mat-datepicker>
+    <!-- <div class="" matSuffix
+      *ngIf="(forms?.todate?.dateInvalid)">
+      <span *ngIf="forms?.from_date?.errors?.required"
+        [matTooltip]="'Please provide the from date!'" matTooltipClass="tooltip-red my-custom-tooltip">
+        <mat-icon color="warn" style="cursor: pointer;">info
+        </mat-icon>
+      </span>
+    </div> -->
+    <mat-error *ngIf="validation()">From date is required</mat-error>
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <input matInput [matDatepicker]="picker" placeholder="Choose a to date" (click)="picker.open()"
+      [min]="filterForm.get('from_date').value" readonly formControlName="to_date">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+    <mat-error *ngIf="validation()">From date is greater than to date</mat-error>
+    <mat-error *ngIf="filterForm?.errors?.['dateInvalid'] && !validation()">From date also required</mat-error>
+
+  </mat-form-field>
+  <br>
+  <button mat-raised-button  color="primary" type="submit" >SUBMIT</button>
+
+</form>
+<br>
+<br>
+<mat-card>
+  <p>{{3.6 | number: '1.0-0'}}
+    <!--will output '4'-->
+    
+    {{-3.6 | number:'1.0-0'}}
+    <!--will output '-4'--></p>
+</mat-card>

@@ -1,0 +1,77 @@
+<!-- <h1>custom-plugin works!</h1>
+
+<mat-form-field>
+  <mat-label *ngIf="options">{{label|titlecase}}</mat-label>
+
+    <mat-select placeholder="State"> 
+       
+        <div class="filter-input multiselect-filter">
+
+            <input matInput #searchInput class="mat-filter-input"
+                [placeholder]="placeholder" matInput type="search">
+            <mat-icon class="clear_icon" *ngIf="searchInput.value!=''" (click)="searchInput.value='';clearSearch()">
+                
+            </mat-icon>
+        </div>
+      <mat-option>None</mat-option>
+      <mat-option *ngFor="let state of states" [value]="state">{{state}}</mat-option>
+      <mat-option>No data Found...</mat-option>
+    </mat-select>
+  </mat-form-field> -->
+
+<mat-form-field appearance="outline">
+    <mat-label *ngIf="options">{{label|titlecase}}</mat-label>
+    <mat-label *ngIf="options==undefined">
+        <div class="select-placeholder-container">
+            <span>{{label|titlecase}}</span>
+        </div>
+    </mat-label>
+    <mat-select [formControl]="form_control" (selectionChange)="optionSelected($event)" (openedChange)="clearSearch()" msInfiniteScroll (infiniteScroll)="getNextBatch()" 
+    [complete]="offset === data.length">
+        <!-- <div class="search-results" scrollWindow="false" infiniteScroll (scrolled)="onScroll()"
+            infiniteScrollDistance="2" infiniteScrollThrottle="50"> -->
+        <!-- <div infinite-scroll infiniteScrollDistance="2" infiniteScrollThrottle="0" (scrolled)="onScroll($event)"
+            scrollWindow="false"> -->
+            <!-- <div class="search-results" infinite-scroll infiniteScrollDistance="2" scrollWindow="false"
+            (scrolled)="onOpen()" alwaysCallback="true"> -->
+
+
+
+            <div class="filter-input multiselect-filter">
+
+                <input matInput #searchInput class="mat-filter-input" [formControl]="searchControl"
+                    [placeholder]="placeholder" matInput (change)="emit()"  (keydown)="$event.stopPropagation()">
+                <mat-icon class="clear_icon" *ngIf="searchInput.value!=''" (click)="searchInput.value='';clearSearch()">
+                    cancel
+                </mat-icon>
+            </div>
+
+
+
+
+            <div class="" style="margin-top: 10px;" *ngIf="options_display!=''&&options_value!=''&&nonSelectedOptions(data[options_value])">
+                <mat-option *ngFor="let data of filteredOptions" [value]="data[options_value]">
+                    {{data[options_display]}}
+                </mat-option>
+            </div>
+            <div class="" style="margin-top: 10px;" *ngFor="let data of filteredOptions">
+                <mat-option *ngIf="options_display==''&&options_value==''&&nonSelectedOptions(data)" [value]="data">
+                    {{data}}
+                </mat-option>
+            </div>
+            <mat-option>
+                <mat-spinner *ngIf="loading&&filteredOptions.length != 0"></mat-spinner>
+            </mat-option>
+
+               
+            <mat-option *ngIf="filteredOptions.length<=0||filteredOptions==undefined">No data found...</mat-option>
+        <!-- </div> -->
+
+    </mat-select>
+
+    <span matSuffix *ngIf="form_control.hasError('required') && form_control.touched" matTooltip="{{error }}">
+        <mat-icon color="warn">info</mat-icon>
+
+    </span>
+
+</mat-form-field>

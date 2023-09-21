@@ -1,0 +1,50 @@
+<h1>FormArray</h1>
+<!-- <mat-card>
+    <ngx-dropzone (change)="onSelect($event)">
+
+        <ngx-dropzone-label><i class="fa-solid fa-arrow-up-from-bracket"></i><br><span>Click to
+                Upload</span><br>or <br><span>Drag and Drop</span></ngx-dropzone-label>
+    </ngx-dropzone>
+<br>
+    <ngx-dropzone (change)="onSelect($event)">
+
+        <ngx-dropzone-label><i class="fa-solid fa-arrow-up-from-bracket"></i><br><span>Click to
+                Upload</span><br>or <br><span>Drag and Drop</span></ngx-dropzone-label>
+    </ngx-dropzone>
+</mat-card> -->
+<form [formGroup]="dropForm">
+    <div formArrayName="attachment">
+        <div *ngFor="let data of dropForm?.get('attachment')['controls']; let i=index" [formGroupName]="i">
+            <div class="ngx-dropzone">
+                <!-- <mat-checkbox formControlName="check" class="example-margin" color="primary"><span
+                        class="required_symbol">
+                        *</span></mat-checkbox> -->
+
+                <mat-form-field class="full-width">
+                    <mat-label>Document Name</mat-label>
+                    <input matInput placeholder="Document Name" name="Document Name" type="text" formControlName="check">
+                    <mat-error *ngIf="data.controls['check'].hasError('required')">Please provide the
+                        Document Name</mat-error>
+                </mat-form-field>
+                <br>
+
+                <div class="upload-document">
+                    <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of files" [file]="f"
+                        [removable]="true" (removed)="onRemove(f)">
+                        <!-- <ngx-dropzone-label> ({{ f.type }})</ngx-dropzone-label> -->
+
+                    </ngx-dropzone-image-preview>
+                    <ngx-dropzone (change)="onSelect($event)">
+                        <input type="file" formControlName="attach" style="display: none;">
+                        <ngx-dropzone-label><i class="fa-solid fa-arrow-up-from-bracket"></i><br><span>Click to
+                                Upload</span><br>or <br><span>Drag and Drop</span></ngx-dropzone-label>
+                    </ngx-dropzone>
+                </div>
+                <button mat-raised-button color="primary" (click)="add()">ADD</button>
+                <br>
+                <!-- <button mat-raised-button color="primary" (clcik)="remove(i)">REMOVE</button> -->
+
+            </div>
+        </div>
+    </div>
+</form>

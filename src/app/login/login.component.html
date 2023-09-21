@@ -1,0 +1,31 @@
+<!-- <mat-toolbar>
+    <span>LOGIN</span>
+  </mat-toolbar> -->
+<h1>LOGIN</h1>
+<mat-card class="my-card">
+   <mat-card-content>
+      <form class="my-form" [formGroup]="loginForm" >
+         <mat-form-field class="full-width">
+            <mat-label>Password</mat-label>
+            <input matInput placeholder="Password" name="password" formControlName="password">
+            <mat-error *ngIf="loginForm.controls['password'].hasError('required')">Please provide the
+               password</mat-error>
+         </mat-form-field>
+         <mat-form-field class="full-width">
+            <mat-label>Confirm Password</mat-label>
+            <input matInput placeholder="Confirm Password" name="confirm password" formControlName="cpassword">
+            <mat-error *ngIf="loginForm.controls['cpassword'].hasError('required')">Please provide the confirm
+               password</mat-error>
+            <mat-error *ngIf="loginForm.controls['password'].touched || loginForm?.errors?.['passwordMatch']"> confirm
+               password not match</mat-error>
+         </mat-form-field>
+         <mat-card-actions>
+            <button mat-raised-button color="primary" (click)="login()" type="submit" [disabled]="control.invalid">LOGIN</button>
+         </mat-card-actions>
+      </form>
+
+   </mat-card-content>
+
+
+
+</mat-card>

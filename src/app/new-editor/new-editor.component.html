@@ -1,0 +1,33 @@
+<h1>Translator</h1>
+<form action="" [formGroup]="form">
+    <div formArrayName="language">
+        <table *ngFor="let data of form.get('language')['controls']; let i = index" [formGroupName]="i">
+            <thead>
+                <tr>
+                    <td>
+                        <p>Select Language</p>
+                    </td>
+                    <td>
+                        <p>Text Editor</p>
+                    </td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <app-custom-plugin [label]="'select Language'" [required]="true"
+                            [form_control]="data?.get('select')" [options]="details" [options_display]="'name'"
+                            [options_value]="'code'" [error]="'Please provide the language'" (scroll)="onScroll()"
+                            [data]="data$"
+                            (changeValue)="valueChanged($event, i)" (changeSearch)="searchChanged($event)"
+                            [value]="{index:i,value:form.get('language').value,key:'details'}"></app-custom-plugin>
+                    </td>
+                    <td>
+                        <input type="text" style="display: none;" formControlName="textEditor">
+                        <button mat-raised-button color="primary" (click)="openDialog({index:i,value:data.value})">Text Editor Open</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</form>

@@ -1,0 +1,12 @@
+.center{
+    text-align: center;
+}
+.mat-mdc-text-field-wrapper.mdc-text-field.ng-tns-c8-0.mdc-text-field--outlined.mdc-text-field--invalid {
+    text-align: center;
+    margin-left: 70px;
+}
+input.mat-filter-input.ng-valid.ng-dirty.ng-touched {
+    border-block: none;
+    border-block-end: none;
+    border: aqua;
+}
